@@ -1,0 +1,102 @@
+//import java.util.Scanner;
+
+public class FirstAssignment {
+
+	public static void main(String[] args) {
+		//Scanner input = new Scanner(System.in);
+		
+		//Create Rectangular Prism Object and print out side lengths
+		RecPrism RP1 = new RecPrism(1, 2, 3);
+		System.out.println(RP1.getLength() + " " + RP1.getWidth() + " " + RP1.getHeight() );
+		System.out.println("the volume is " + RP1.getVolume() );
+		
+		
+		//using polymorphism
+		Rectangle rec1 = new RecPrism();
+		System.out.println("using polymorphism, we can get area of" + rec1.getArea() );
+		
+		System.exit(0);
+	} 
+} 
+
+class Rectangle {
+	private double length, width;
+
+	Rectangle() {
+		length = 1;
+		width = 1;
+	}
+
+	Rectangle(double length, double width) {
+		this.length = length;
+		this.width = width;
+	}
+
+	void setLength(double length) {
+		this.length = length;
+	}
+
+	void setWidth(double width) {
+		this.width = width;
+	}
+
+	double getLength() {
+		return length;
+	}
+
+	double getWidth() {
+		return width;
+	}
+
+	double getArea() {
+		return length * width;
+	}
+
+	double getPerimeter() {
+		return 2 * length + 2 * width;
+	}
+
+}
+
+class RecPrism extends Rectangle{
+	private double height;
+
+	RecPrism() {
+		super();
+		height = 1;
+	}
+
+	RecPrism(double inpLength, double inpWidth, double inpHeight) {
+		super(inpLength, inpWidth);
+		height = inpHeight;
+	}
+
+	void setLength(double newLength) {
+		this.setLength(newLength);
+	}
+
+	void setWidth(double newWidth) {
+		this.setWidth(newWidth);;
+	}
+
+	void setHeight(double newHeight) {
+		height = newHeight;
+	}
+
+	double getLength() {
+		return super.getLength();
+	}
+
+	double getWidth() {
+		return super.getWidth();
+	}
+
+	double getHeight() {
+		return height;
+	}
+
+	double getVolume() {
+		return super.getLength() * super.getWidth() * height;
+	}
+
+} //no surface area (use polymorphism)
